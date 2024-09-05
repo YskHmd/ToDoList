@@ -1,6 +1,18 @@
-{% for post in object_list %}
-<ul>
-<li>{{ post.title }}</li>
-<li>{{ post.memo }}</li>
-</ul>
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-dark" role="alert">
+    <h1>List</h1>
+</div>
+{% endblock header %}
+
+{% block content %}
+{% for item in object_list %}
+<div class="alert alert-success" role="alert">
+    {{ item.title }}
+</div>
+<div class="alert alert-success" role="alert">
+    {{ item.memo }}
+</div>
 {% endfor %}
+{% endblock content %}
