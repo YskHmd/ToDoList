@@ -3,16 +3,20 @@
 {% block header %}
 <div class="alert alert-dark" role="alert">
     <h1>List</h1>
+    <p>備考欄</p>
 </div>
 {% endblock header %}
 
 {% block content %}
-{% for item in object_list %}
-<div class="alert alert-success" role="alert">
-    {{ item.title }}
+    <div class='container'>
+    {% for item in object_list %}
+    <div class="alert alert-{{ item.priority }}" role="alert">
+       <P> {{ item.title }}</p>
+        <a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
+        <a href="#" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
+        <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+    </div>
+    
+    {% endfor %}
 </div>
-<div class="alert alert-success" role="alert">
-    {{ item.memo }}
-</div>
-{% endfor %}
 {% endblock content %}
